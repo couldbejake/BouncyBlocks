@@ -24,15 +24,25 @@ import org.bukkit.util.Vector;
 public class Main extends JavaPlugin implements Listener {
 	
     public void onEnable() {
+		
+		// Creates config folder
         getDataFolder().mkdir();
         getLogger().info("Mining Anti Cheat By JakeNelson1999 has been loaded!");
+		
+		// Creates plugin manager and begins registering all events.
         PluginManager manager = Bukkit.getServer().getPluginManager();
         manager.registerEvents(this, this);
 
+		// Loads the config file link.
         File ConfigFile = new File(getDataFolder(), "config.yml");
         final YamlConfiguration config = YamlConfiguration.loadConfiguration(ConfigFile);
 
+		// If the config file does not exist.
         if (!ConfigFile.exists()) {
+			/*
+				Create a new config file with correct values.
+			*/
+			
             config.options().header("If Scheduled is set to false, bouncing will only work when the player moves. Note: Setting to false creates less lag! #Set The value below to either True, False or Both");
             config.set("Scheduled Detection?", "False");
             config.set("Schedule Delay in ticks 20 ticks = 1 second", Integer.valueOf(20));
@@ -59,9 +69,7 @@ public class Main extends JavaPlugin implements Listener {
             final List < String > small_bounce = config.getStringList("Small Bounce Blocks");
             final List < String > large_bounce = config.getStringList("Large Bounce Blocks");
 
-
-
-
+			// Create a scheduler for the timing based bouncing.
             BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
             scheduler.scheduleSyncRepeatingTask(this, new Runnable() {
                 public void run() {
@@ -81,9 +89,13 @@ public class Main extends JavaPlugin implements Listener {
     }
 
 
-
+	// If a player joins
     @EventHandler
     public void plaJoin(PlayerMoveEvent event) {
+		/*
+			Check whether the player is allowed to bounce and apply correct velocities.
+		*/
+		
         File ConfigFile = new File(getDataFolder(), "config.yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(ConfigFile);
 
@@ -92,9 +104,11 @@ public class Main extends JavaPlugin implements Listener {
 
         if ((((String) config.get("Scheduled Detection?")).toLowerCase().contains("false")) || (((String) config.get("Scheduled Detection?")).toLowerCase().contains("both"))) {
             if (small_bounce.contains(event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getTypeId())) {
+				// Set player velocity on small bounce.
                 event.getPlayer().setVelocity(new Vector(0, ((Integer) config.get("Small Bounce Height")).intValue(), 0));
             }
             if (large_bounce.contains(event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getTypeId())) {
+				// Set player velocity on large bounce.
                 event.getPlayer().setVelocity(new Vector(0, ((Integer) config.get("Large Bounce Height")).intValue(), 0));
             }
         }
