@@ -1,0 +1,10 @@
+Scheduled Detection?: 'both'
+Schedule Delay in ticks 20 ticks = 1 second: 20
+Small Bounce Height: 1
+Large Bounce Height: 32
+Small Bounce Blocks: 
+- '4'
+- '20'
+Large Bounce Blocks:
+- '19'
+- '29'
