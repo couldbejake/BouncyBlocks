@@ -1,7 +1,9 @@
 # BouncyBlocks
 
-Information
-Bouncy Blocks allows you to make particular blocks make players bounce. This is ideal for games such as parkour. As well as allowing custom blocks for bouncing, the plugin also allows for the bounce Height to be set!
+Bouncy Blocks is a Minecraft Plugin that allows you to make particular blocks allow players to bounce. 
+This is ideal for games such as parkour.
+
+As well as allowing custom blocks for bouncing, the plugin also allows for the 'bounce height' to be set!
 
 Features
 - Easily enable or disable bouncy blocks.
