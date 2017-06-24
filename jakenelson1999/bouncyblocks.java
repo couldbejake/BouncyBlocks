@@ -45,7 +45,7 @@ public class Main extends JavaPlugin implements Listener {
 			
             config.options().header("If Scheduled is set to false, bouncing will only work when the player moves. Note: Setting to false creates less lag! #Set The value below to either True, False or Both");
             config.set("Scheduled Detection?", "False");
-            config.set("Schedule Delay in ticks 20 ticks = 1 second", Integer.valueOf(20));
+            config.set("Schedule Delay in ticks", Integer.valueOf(20));
 
             config.set("Small Bounce Height", Integer.valueOf(1));
             config.set("Large Bounce Height", Integer.valueOf(32));
