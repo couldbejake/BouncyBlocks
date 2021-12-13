@@ -19,5 +19,7 @@ Currently no Commands or Permissions needed! Suggestions will be taken to add mo
 Learn by example
 We would be happy for any Youtubers to make an example video of this plugin, if you're interested please get in contact! :)
 
-Metrics
-This plugin sends statistics about the usage to the server http://mcstats.org/. You can disable it using the command opt-out.
+`For reference I made this in July of 2015.`
+
+`The original source code can be viewed at:`
+https://dev.bukkit.org/projects/bouncy-blocks
